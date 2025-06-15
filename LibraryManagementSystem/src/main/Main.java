@@ -18,12 +18,14 @@ public class Main {
 
         bookManager.addBook(new Book("1", "The Alchemist", "Paulo Coelho"));
         bookManager.addBook(new Book("2", "Atomic Habits", "James Clear"));
+        bookManager.addBook(new Book("3", "Harry Potter", "JK Rowling"));
 
         userManager.addUser(new User("u1", "Alice"));
+        userManager.addUser(new User("u2", "Nishek"));
 
         System.out.println("Welcome to Library System");
         while (true) {
-            System.out.println("\n1. View Books\n2. Search by Title\n3. Borrow\n4. Return\n5. Exit");
+            System.out.println("\n1. View Books\n2. Search by Title\n3. Borrow\n4. Return\n5. View All Users\n6. Exit");
             int choice = sc.nextInt();
             sc.nextLine(); // consume newline
 
@@ -67,8 +69,13 @@ public class Main {
                         System.out.println("Book returned.");
                     }
                     break;
-
                 case 5:
+                	for(User u : userManager.getAllUsers()) {
+                		System.out.println(u.getId() + " - "+ u.getName());
+                	}
+                	
+                	break;
+                case 6:
                     System.out.println("Exiting...!");
                     return;
 
